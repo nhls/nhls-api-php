@@ -193,8 +193,7 @@ class NHLS_Api {
   }
 
   private function endpoint() {
-    return "http://localhost:3000/api/v1/";
-    //return $this->environment == 'production' ? 'https://newhomelistingservice.com/api/v1/' : 'https://demo.newhomelistingservice.com/api/v1/';
+    return $this->environment == 'production' ? 'https://newhomelistingservice.com/api/v1/' : 'https://demo.newhomelistingservice.com/api/v1/';
   }
 
 }
