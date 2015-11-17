@@ -75,11 +75,10 @@ class NHLS_Api {
     }
   }
 
-  public function createListing($params, $active = true) {
+  public function createListing($params) {
     $ch = curl_init();
-    $active_value = $active ? 'true' : 'false'; 
 
-    curl_setopt($ch, CURLOPT_URL, $this->endpoint() . "listings?api_key={$this->api_key}&active={$active_value}");
+    curl_setopt($ch, CURLOPT_URL, $this->endpoint() . "listings?api_key={$this->api_key}");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($ch, CURLOPT_HEADER, FALSE);
 
@@ -193,7 +192,7 @@ class NHLS_Api {
   }
 
   private function endpoint() {
-    return $this->environment == 'production' ? 'https://newhomelistingservice.com/api/v1/' : 'https://demo.newhomelistingservice.com/api/v1/';
+    return $this->environment == 'production' ? 'https://api.newhomelistingservice.com/api/v1/' : 'https://sandbox.newhomelistingservice.com/api/v1/';
   }
 
 }
